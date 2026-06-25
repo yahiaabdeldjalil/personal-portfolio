@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+
 import {
   Dialog,
   DialogContent,
@@ -15,10 +17,17 @@ import {
   FaServer,
   FaChartLine,
   FaLightbulb,
-  FaExclamationTriangle
+  FaExclamationTriangle,
 } from "react-icons/fa";
+
 import ArchitectureDiagram from "@/components/architecture-diagram";
-import { useState } from "react";
+
+type TabType =
+  | "overview"
+  | "architecture"
+  | "challenges"
+  | "results"
+  | "lessons";
 
 export default function ProjectModal({
   project,
@@ -27,20 +36,57 @@ export default function ProjectModal({
   project: any;
   children: React.ReactNode;
 }) {
-  const [activeTab, setActiveTab] = useState("overview");
-  const tabs = [
+  const [activeTab, setActiveTab] =
+    useState<TabType>("overview");
+
+  const tabs: TabType[] = [
     "overview",
     "architecture",
     "challenges",
     "results",
-    "lessons"];
-  const icons = {
-    "overview": <FaServer size={20} color="violet-500"/>,
-    "architecture": <FaProjectDiagram size={20} color="green-500" />,
-    "challenges": <FaExclamationTriangle size={20} color="yellow-500" />,
-    "results": <FaChartLine size={20} color="blue-500" />,
-    "lessons": <FaLightbulb size={20} color="orange-500" />
-  }
+    "lessons",
+  ];
+
+  const icons: Record<
+    TabType,
+    React.ReactNode
+  > = {
+    overview: (
+      <FaServer
+        size={18}
+        className="text-violet-400"
+      />
+    ),
+
+    architecture: (
+      <FaProjectDiagram
+        size={18}
+        className="text-cyan-400"
+      />
+    ),
+
+    challenges: (
+      <FaExclamationTriangle
+        size={18}
+        className="text-yellow-400"
+      />
+    ),
+
+    results: (
+      <FaChartLine
+        size={18}
+        className="text-emerald-400"
+      />
+    ),
+
+    lessons: (
+      <FaLightbulb
+        size={18}
+        className="text-orange-400"
+      />
+    ),
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -49,31 +95,30 @@ export default function ProjectModal({
 
       <DialogContent
         className="
-    w-[95vw]
-    max-w-7xl
+          w-[95vw]
+          max-w-7xl
 
-    h-[88vh]
+          h-[92vh]
 
-    overflow-y-auto
+          overflow-hidden
 
-    bg-slate-950/80
-    backdrop-blur-3xl
+          bg-slate-950/90
+          backdrop-blur-3xl
 
-    border
-    border-white/10
+          border
+          border-white/10
 
-    shadow-[0_0_80px_rgba(139,92,246,0.15)]
+          text-white
 
-    text-white
-    scroll-smooth
-  "
+          shadow-[0_0_80px_rgba(139,92,246,0.15)]
+        "
       >
         <DialogHeader>
           <DialogTitle
             className="
-              text-4xl
+              text-2xl
+              md:text-4xl
               font-black
-              text-white
             "
           >
             {project.title}
@@ -82,55 +127,120 @@ export default function ProjectModal({
 
         <div
           className="
-    grid
-    lg:grid-cols-[260px_1fr]
-    gap-8
-  "
+            grid
+            grid-cols-1
+
+            lg:grid-cols-[280px_minmax(0,1fr)]
+
+            gap-6
+
+            h-full
+
+            overflow-hidden
+          "
         >
           {/* SIDEBAR */}
 
-          <div className="space-y-2">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`
-        w-full
-        text-left
-        px-4
-        py-3
-        rounded-xl
-        transition-all
-        hover:cursor-pointer         
-        ${activeTab === tab
-                    ? `
-              bg-violet-500/15
-              border border-violet-500/30
-              text-violet-300
-            `
-                    : `
-              text-slate-400
-              hover:bg-white/5
-            `
+          <aside
+            className="
+              lg:sticky
+              lg:top-0
+
+              h-fit
+
+              border-b
+              lg:border-b-0
+
+              lg:border-r
+
+              border-white/10
+
+              pb-4
+              lg:pb-0
+
+              lg:pr-4
+            "
+          >
+            <div
+              className="
+                flex
+                lg:flex-col
+
+                gap-2
+
+                overflow-x-auto
+
+                lg:overflow-visible
+              "
+            >
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() =>
+                    setActiveTab(tab)
                   }
-      `}
+                  className={`
+                    shrink-0
+
+                    px-4
+                    py-3
+
+                    rounded-xl
+
+                    transition-all
+
+                    text-left
+
+                    hover:cursor-pointer
+
+                    ${
+                      activeTab === tab
+                        ? `
+                          bg-violet-500/15
+                          border
+                          border-violet-500/30
+                          text-violet-300
+                        `
+                        : `
+                          text-slate-400
+                          hover:bg-white/5
+                        `
+                    }
+                  `}
+                >
+                  <div
+                    className="
+                      flex
+                      items-center
+                      gap-3
+                    "
+                  >
+                    {icons[tab]}
+
+                    <span className="capitalize">
+                      {tab}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <div
+                className="
+                  text-xs
+                  tracking-widest
+
+                  text-slate-500
+
+                  mb-4
+                "
               >
-                <div className="flex items-center space-x-2">
-                  <>{icons[tab]}</>
-                  <h1>
-                    {tab.charAt(0).toUpperCase() +
-                      tab.slice(1)}
-                  </h1>
-                </div>
-              </button>
-            ))}
-            <div className="mt-10">
-              <div className="text-xs tracking-widest text-slate-500 mb-4">
                 TECHNOLOGIES
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {project.technologies.map(
+                {project.technologies?.map(
                   (tech: string) => (
                     <span
                       key={tech}
@@ -141,6 +251,7 @@ export default function ProjectModal({
                         rounded-full
 
                         bg-slate-900
+
                         border
                         border-white/10
 
@@ -154,62 +265,72 @@ export default function ProjectModal({
                 )}
               </div>
             </div>
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-    flex
-    items-center
-    gap-3
 
-    px-4
-    py-3
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  mt-8
 
-    rounded-xl
+                  flex
+                  items-center
+                  gap-3
 
-    bg-white/5
+                  px-4
+                  py-3
 
-    border
-    border-white/10
+                  rounded-xl
 
-    hover:border-violet-500/40
+                  bg-white/5
 
-    transition-all
-  "
-            >
-              <FaGithub size={20} />
+                  border
+                  border-white/10
 
-              <span>
-                View Source Code
-              </span>
-            </a>
-          </div>
+                  hover:border-violet-500/40
 
+                  hover:bg-violet-500/10
 
-          {/* MAIN CONTENT */}
+                  transition-all
+                "
+              >
+                <FaGithub size={20} />
+
+                <span>
+                  View Source Code
+                </span>
+              </a>
+            )}
+          </aside>
+
+          {/* CONTENT */}
 
           <main
             className="
-              min-w-0
-              space-y-12
+              overflow-y-auto
+
+              pr-2
+
+              space-y-8
             "
           >
-            {/* HERO IMAGE */}
+            {/* IMAGE */}
 
             <div
               className="
-    relative
+                relative
 
-    h-40
-    md:h-56
+                h-40
+                md:h-56
 
-    rounded-2xl
-    overflow-hidden
+                rounded-2xl
 
-    border
-    border-white/10
-  "
+                overflow-hidden
+
+                border
+                border-white/10
+              "
             >
               <Image
                 src={project.image}
@@ -223,61 +344,112 @@ export default function ProjectModal({
                   absolute
                   inset-0
 
-                  bg-linear-to-t
+                  bg-gradient-to-t
+
                   from-slate-950
                   via-transparent
                   to-transparent
                 "
               />
             </div>
+
             {/* OVERVIEW */}
+
             {activeTab === "overview" && (
               <section>
-                <h3 className="text-2xl font-bold mb-4">
+                <h3
+                  className="
+                    text-2xl
+                    font-bold
+                    mb-4
+                  "
+                >
                   Overview
                 </h3>
 
-                <p className="text-slate-300 leading-8">
-                  {project.sections.overview}
+                <p
+                  className="
+                    text-slate-300
+                    leading-8
+                  "
+                >
+                  {project.sections?.overview}
                 </p>
               </section>
             )}
+
             {/* ARCHITECTURE */}
 
-            {activeTab === "architecture" && (
+            {activeTab ===
+              "architecture" && (
               <section>
-                <h3 className="text-2xl font-bold mb-6">
+                <h3
+                  className="
+                    text-2xl
+                    font-bold
+                    mb-6
+                  "
+                >
                   System Architecture
                 </h3>
 
                 <ArchitectureDiagram
-                  steps={project.sections.architecture.architectureSteps || null}
+                  steps={
+                    project.sections
+                      ?.architecture
+                      ?.architectureSteps ??
+                    []
+                  }
                 />
 
-                <p className="mt-6 text-slate-300">
-                  {project.sections.architecture.overview}
+                <p
+                  className="
+                    mt-6
+                    text-slate-300
+                    leading-8
+                  "
+                >
+                  {
+                    project.sections
+                      ?.architecture
+                      ?.overview
+                  }
                 </p>
               </section>
             )}
 
             {/* CHALLENGES */}
 
-            {activeTab === "challenges" && (
-              <section className="">
-                <h3 className="text-2xl font-bold mb-4">
+            {activeTab ===
+              "challenges" && (
+              <section>
+                <h3
+                  className="
+                    text-2xl
+                    font-bold
+                    mb-4
+                  "
+                >
                   Challenges
                 </h3>
 
                 <ul className="space-y-4">
-                  {project.sections.challenges.map(
-                    (challenge: string) => (
+                  {project.sections?.challenges?.map(
+                    (
+                      challenge: string
+                    ) => (
                       <li
                         key={challenge}
                         className="
-              p-4
-              rounded-xl
-              bg-white/4
-            "
+                          p-4
+
+                          rounded-xl
+
+                          bg-white/5
+
+                          border
+                          border-white/10
+                        "
                       >
                         {challenge}
                       </li>
@@ -289,26 +461,34 @@ export default function ProjectModal({
 
             {/* RESULTS */}
 
-            {activeTab === "results" && (
+            {activeTab ===
+              "results" && (
               <section>
-                <h3 className="text-2xl font-bold mb-4">
+                <h3
+                  className="
+                    text-2xl
+                    font-bold
+                    mb-4
+                  "
+                >
                   Results
                 </h3>
 
                 <ul className="space-y-4">
-                  {project.sections.results.map(
+                  {project.sections?.results?.map(
                     (result: string) => (
                       <li
                         key={result}
                         className="
-              p-4
-              rounded-xl
+                          p-4
 
-              bg-emerald-500/10
+                          rounded-xl
 
-              border
-              border-emerald-500/20
-            "
+                          bg-emerald-500/10
+
+                          border
+                          border-emerald-500/20
+                        "
                       >
                         ✓ {result}
                       </li>
@@ -320,14 +500,26 @@ export default function ProjectModal({
 
             {/* LESSONS */}
 
-            {activeTab === "lessons" && (
+            {activeTab ===
+              "lessons" && (
               <section>
-                <h3 className="text-2xl font-bold mb-4">
+                <h3
+                  className="
+                    text-2xl
+                    font-bold
+                    mb-4
+                  "
+                >
                   Lessons Learned
                 </h3>
 
-                <p className="text-slate-300 leading-8">
-                  {project.sections.lessons}
+                <p
+                  className="
+                    text-slate-300
+                    leading-8
+                  "
+                >
+                  {project.sections?.lessons}
                 </p>
               </section>
             )}
@@ -335,44 +527,5 @@ export default function ProjectModal({
         </div>
       </DialogContent>
     </Dialog>
-  );
-}
-
-function MetricCard({
-  value,
-  label,
-  color,
-}: {
-  value: string;
-  label: string;
-  color: string;
-}) {
-  return (
-    <div
-      className="
-        rounded-2xl
-
-        border
-        border-white/10
-
-        bg-slate-900/60
-
-        p-6
-      "
-    >
-      <div
-        className={`
-          text-3xl
-          font-black
-          ${color}
-        `}
-      >
-        {value}
-      </div>
-
-      <div className="text-slate-400 mt-2">
-        {label}
-      </div>
-    </div>
   );
 }

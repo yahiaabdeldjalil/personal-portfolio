@@ -12,3 +12,8 @@ export default function RootLayout({
     </html>
   );
 }
+export const metadata = {
+  title: "Yahia Abdeldjalil",
+  description:
+    "AI Engineer, Cybersecurity Specialist and Network Engineer",
+};
