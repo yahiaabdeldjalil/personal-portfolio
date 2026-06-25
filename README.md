@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio
+
+Modern developer portfolio built with Next.js, TypeScript, Tailwind CSS, Framer Motion, and shadcn/ui.
+
+## Features
+
+* Responsive design
+* Interactive glassmorphism UI
+* Animated hero section
+* Project showcase with detailed case studies
+* Interactive architecture diagrams
+* GitHub contribution calendar
+* Skills section with technology icons
+* Contact section with social links
+* Smooth scrolling navigation
+* Modern dark theme
+
+## Tech Stack
+
+### Frontend
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+
+### UI
+
+* shadcn/ui
+* Radix UI
+* React Icons
+
+### Deployment
+
+* Vercel
+
+## Sections
+
+### Hero
+
+Interactive glass identity card showcasing:
+
+* AI Engineering
+* Cybersecurity
+* Network Engineering
+* Machine Learning
+
+### Skills
+
+Technology stack including:
+
+* Python
+* Linux
+* Docker
+* TensorFlow
+* PyTorch
+* React
+* Next.js
+* Git
+* Cybersecurity
+* 5G Networks
+
+### Projects
+
+Featured projects with:
+
+* Project overview
+* Architecture diagrams
+* Challenges
+* Results
+* Lessons learned
+* GitHub links
+
+### GitHub Activity
+
+Live contribution graph powered by GitHub Calendar.
+
+### Contact
+
+Professional contact information including:
+
+* Email
+* GitHub
+* LinkedIn
+* Facebook
+* WhatsApp
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build production version:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Yahia Abdeldjalil
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+LinkedIn:
+https://linkedin.com/in/yahiaabdeldjalil-benyahia
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
