@@ -54,7 +54,6 @@ export default function NetworkBackground() {
     // =====================
     // STAR FIELD
     // =====================
-
     for (let i = 0; i < 100; i++) {
       stars.push({
         x: Math.random() * window.innerWidth,
@@ -66,7 +65,6 @@ export default function NetworkBackground() {
     // =====================
     // PARTICLES
     // =====================
-
     for (let i = 0; i < 30; i++) {
       const hub = Math.random() > 0.95;
 
@@ -107,20 +105,21 @@ export default function NetworkBackground() {
     // =====================
     // ELECTRIC HUB AURA
     // =====================
-
     const drawElectricAura = (
       x: number,
       y: number,
       radius: number,
-      pulse: number
+      pulse: number,
+      isLight: boolean
     ) => {
       const spikes = 12;
 
-      ctx.strokeStyle =
-        "rgba(168,85,247,0.55)";
+      ctx.strokeStyle = isLight
+        ? "rgba(168,85,247,0.7)"
+        : "rgba(168,85,247,0.55)";
 
       ctx.shadowColor = "#a855f7";
-      ctx.shadowBlur = 6;
+      ctx.shadowBlur = isLight ? 2 : 6;
       ctx.lineWidth = 1;
 
       for (let i = 0; i < spikes; i++) {
@@ -156,6 +155,9 @@ export default function NetworkBackground() {
     const animate = () => {
       time += 0.015;
 
+      // Check if light mode is currently active
+      const isLight = document.documentElement.classList.contains("light");
+
       ctx.clearRect(
         0,
         0,
@@ -164,14 +166,14 @@ export default function NetworkBackground() {
       );
 
       // =====================
-      // STARS
+      // STARS / BACKGROUND DOTS
       // =====================
-
       for (const star of stars) {
         ctx.beginPath();
 
-        ctx.fillStyle =
-          "rgba(255,255,255,0.12)";
+        ctx.fillStyle = isLight
+          ? "rgba(0,0,0,0.12)"
+          : "rgba(255,255,255,0.12)";
 
         ctx.arc(
           star.x,
@@ -187,7 +189,6 @@ export default function NetworkBackground() {
       // =====================
       // UPDATE PARTICLES
       // =====================
-
       for (const p of particles) {
         p.pulse += 0.03;
 
@@ -195,7 +196,6 @@ export default function NetworkBackground() {
         p.y += p.vy;
 
         // Strong parallax
-
         const offsetX =
           ((mouseX -
             window.innerWidth / 2) /
@@ -214,7 +214,6 @@ export default function NetworkBackground() {
         p.y += offsetY * 0.015;
 
         // Nearby attraction
-
         const dxMouse =
           mouseX - p.x;
 
@@ -248,7 +247,6 @@ export default function NetworkBackground() {
       // =====================
       // CONNECTIONS
       // =====================
-
       for (let i = 0; i < particles.length; i++) {
         const p1 = particles[i];
 
@@ -274,9 +272,10 @@ export default function NetworkBackground() {
           if (dist > 140)
             continue;
 
+          const baseOpacity = isLight ? 0.22 : 0.12;
           const opacity =
             (
-              0.12 +
+              baseOpacity +
               Math.sin(
                 time * 2 + i
               ) *
@@ -305,7 +304,7 @@ export default function NetworkBackground() {
           ctx.strokeStyle =
             gradient;
 
-          ctx.shadowBlur = 4;
+          ctx.shadowBlur = isLight ? 1 : 4;
           ctx.shadowColor =
             "#8b5cf6";
 
@@ -344,7 +343,6 @@ export default function NetworkBackground() {
           ctx.stroke();
 
           // Energy packet
-
           const t =
             (
               time * 0.25 +
@@ -378,10 +376,11 @@ export default function NetworkBackground() {
 
           ctx.beginPath();
 
-          ctx.fillStyle =
-            "rgba(255,255,255,0.9)";
+          ctx.fillStyle = isLight
+            ? "rgba(139,92,246,0.9)"
+            : "rgba(255,255,255,0.9)";
 
-          ctx.shadowBlur = 8;
+          ctx.shadowBlur = isLight ? 3 : 8;
           ctx.shadowColor =
             "#a855f7";
 
@@ -400,27 +399,26 @@ export default function NetworkBackground() {
       // =====================
       // NODES
       // =====================
-
       for (const p of particles) {
         if (p.hub) {
           drawElectricAura(
             p.x,
             p.y,
             p.radius,
-            p.pulse
+            p.pulse,
+            isLight
           );
         }
 
         // tiny glow only
-
         ctx.beginPath();
 
         ctx.fillStyle = p.hub
-          ? "rgba(168,85,247,0.25)"
-          : "rgba(96,165,250,0.12)";
+          ? (isLight ? "rgba(168,85,247,0.35)" : "rgba(168,85,247,0.25)")
+          : (isLight ? "rgba(96,165,250,0.22)" : "rgba(96,165,250,0.12)");
 
         ctx.shadowBlur =
-          p.hub ? 8 : 3;
+          p.hub ? (isLight ? 4 : 8) : (isLight ? 1 : 3);
 
         ctx.shadowColor = p.hub
           ? "#a855f7"
@@ -437,11 +435,9 @@ export default function NetworkBackground() {
         ctx.fill();
 
         // bright core
-
         ctx.beginPath();
 
-        ctx.fillStyle =
-          "#ffffff";
+        ctx.fillStyle = isLight ? "#8b5cf6" : "#ffffff";
 
         ctx.arc(
           p.x,

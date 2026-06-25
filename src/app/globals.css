@@ -1,23 +1,97 @@
 @import "tailwindcss";
 
+@custom-variant light (&:where(.light, .light *));
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Default body (no theme) – can stay empty or base */
+body {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark theme */
+.dark body {
+  background:
+    radial-gradient(circle at 15% 15%,
+      rgba(59, 130, 246, 0.08),
+      transparent 30%),
+    radial-gradient(circle at 85% 25%,
+      rgba(168, 85, 247, 0.08),
+      transparent 30%),
+    #020617;
+  color: #ffffff;
+}
+
+/* Light theme */
+.light body {
+  background:
+    radial-gradient(circle at 15% 15%,
+      rgba(185, 195, 212, 0.04),
+      transparent 35%),
+    radial-gradient(circle at 85% 25%,
+      rgba(168, 85, 247, 0.04),
+      transparent 35%),
+    #f8fafc;
+  color: #0f172a;
+}
+
+.light body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -30;
+  background-image:
+    linear-gradient(to right, rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+
+@custom-variant light (&:where(.light, .light *));
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   background:
-    radial-gradient(
-      circle at 15% 15%,
-      rgba(59,130,246,.08),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 25%,
-      rgba(168,85,247,.08),
-      transparent 30%
-    ),
+    radial-gradient(circle at 15% 15%,
+      rgba(59, 130, 246, 0.08),
+      transparent 30%),
+    radial-gradient(circle at 85% 25%,
+      rgba(168, 85, 247, 0.08),
+      transparent 30%),
     #020617;
+  color: #ffffff;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-html {
-  scroll-behavior: smooth;
+
+body.dark {
+  background:
+    radial-gradient(circle at 15% 15%,
+      rgba(59, 130, 246, 0.08),
+      transparent 30%),
+    radial-gradient(circle at 85% 25%,
+      rgba(168, 85, 247, 0.08),
+      transparent 30%),
+    #020617;
+  color: #ffffff;
+}
+
+
+body.light::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -30;
+  background-image:
+    linear-gradient(to right, rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
 }

@@ -35,6 +35,7 @@ export default function Projects() {
           text-5xl
           font-black
           text-white
+          light:text-slate-900
           mb-14
         "
       >
@@ -74,25 +75,22 @@ export default function Projects() {
               className="
                 group
                 cursor-pointer
-
                 overflow-hidden
-
                 rounded-3xl
-
                 border
                 border-white/10
-
+                light:border-slate-200
                 bg-white/[0.03]
-
+                light:bg-white
                 backdrop-blur-xl
-
                 transition-all
                 duration-500
-
                 hover:border-violet-500/30
-
+                light:hover:border-violet-500/20
                 shadow-[0_0_30px_rgba(59,130,246,0.08)]
+                light:shadow-[0_10px_35px_rgba(99,102,241,0.04)]
                 hover:shadow-[0_0_70px_rgba(139,92,246,0.20)]
+                light:hover:shadow-[0_20px_50px_rgba(139,92,246,0.08)]
               "
             >
               <div className="relative h-64 overflow-hidden">
@@ -112,9 +110,9 @@ export default function Projects() {
                   className="
                     absolute
                     inset-0
-
                     bg-gradient-to-t
-                    from-slate-950
+                    from-slate-950/80
+                    light:from-slate-100/10
                     via-transparent
                     to-transparent
                   "
@@ -125,19 +123,18 @@ export default function Projects() {
                 <div
                   className="
                     inline-flex
-
                     rounded-full
-
                     border
                     border-violet-500/20
-
+                    light:border-violet-500/30
                     bg-violet-500/10
-
+                    light:bg-violet-50
                     px-4
                     py-1
-
                     text-sm
                     text-violet-300
+                    light:text-violet-700
+                    font-medium
                   "
                 >
                   {project.badge}
@@ -146,107 +143,24 @@ export default function Projects() {
                 <h3
                   className="
                     mt-4
-
                     text-3xl
                     font-bold
-
                     text-white
+                    light:text-slate-950
                   "
                 >
                   {project.title}
                 </h3>
 
-                <p
-                  className="
-                    mt-4
-
-                    text-slate-400
-                    leading-7
-                  "
-                >
-                  {/* {project.overview} */}
-                </p>
-
-                {/* <div
-                  className="
-                    grid
-                    grid-cols-3
-                    gap-4
-
-                    mt-6
-                    mb-6
-                  "
-                >
-                  <div>
-                    <div className="text-xl font-bold text-white">
-                      {project.stat1}
-                    </div>
-
-                    <div className="text-xs text-slate-500">
-                      {project.label1}
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-xl font-bold text-white">
-                      {project.stat2}
-                    </div>
-
-                    <div className="text-xs text-slate-500">
-                      {project.label2}
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-xl font-bold text-white">
-                      {project.stat3}
-                    </div>
-
-                    <div className="text-xs text-slate-500">
-                      {project.label3}
-                    </div>
-                  </div>
-                </div> */}
-
-                {/* <div
-                  className="
-                    flex
-                    flex-wrap
-                    gap-2
-                  "
-                >
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="
-                        rounded-full
-
-                        border
-                        border-white/10
-
-                        bg-slate-900
-
-                        px-3
-                        py-1
-
-                        text-sm
-                        text-slate-300
-                      "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div> */}
-
                 <div
                   className="
                     mt-6
-
                     text-violet-300
+                    light:text-violet-650
                     font-semibold
                   "
                 >
-                  View Case Study →
+                  View Case Study & Details →
                 </div>
               </div>
             </motion.div>

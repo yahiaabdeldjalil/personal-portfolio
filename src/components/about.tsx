@@ -70,6 +70,7 @@ export default function About() {
           text-5xl
           font-black
           text-white
+          light:text-slate-950
           mb-10
         "
       >
@@ -84,7 +85,6 @@ export default function About() {
         "
       >
         {/* TERMINAL */}
-
         <motion.div
           initial={{
             opacity: 0,
@@ -105,30 +105,27 @@ export default function About() {
           className="
             rounded-3xl
             overflow-hidden
-
             border
             border-violet-500/20
-
+            light:border-violet-500/30
             bg-slate-950/80
-
+            light:bg-slate-50
             backdrop-blur-xl
-
             shadow-[0_0_60px_rgba(168,85,247,0.12)]
+            light:shadow-[0_15px_40px_rgba(168,85,247,0.05)]
           "
         >
           {/* HEADER */}
-
           <div
             className="
               flex
               items-center
               gap-2
-
               px-5
               py-4
-
               border-b
               border-white/10
+              light:border-slate-200
             "
           >
             <div className="w-3 h-3 rounded-full bg-red-500" />
@@ -140,6 +137,7 @@ export default function About() {
                 ml-4
                 text-xs
                 text-slate-500
+                light:text-slate-400
               "
             >
               yahia@portfolio:~
@@ -147,13 +145,10 @@ export default function About() {
           </div>
 
           {/* BODY */}
-
           <div
             className="
               p-6
-
               min-h-[430px]
-
               font-mono
               text-sm
               md:text-base
@@ -174,15 +169,15 @@ export default function About() {
                 "
               >
                 {line.startsWith("$") ? (
-                  <span className="text-green-400">
+                  <span className="text-green-400 light:text-green-600 font-bold">
                     {line}
                   </span>
                 ) : line.includes("──") ? (
-                  <span className="text-slate-600">
+                  <span className="text-slate-600 light:text-slate-300">
                     {line}
                   </span>
                 ) : (
-                  <span className="text-slate-300">
+                  <span className="text-slate-300 light:text-slate-700">
                     {line}
                   </span>
                 )}
@@ -194,12 +189,10 @@ export default function About() {
               <span
                 className="
                   inline-block
-
                   w-2
                   h-5
-
                   bg-violet-400
-
+                  light:bg-violet-600
                   animate-pulse
                 "
               />
@@ -208,7 +201,6 @@ export default function About() {
         </motion.div>
 
         {/* PROFILE CARD */}
-
         <motion.div
           initial={{
             opacity: 0,
@@ -223,17 +215,15 @@ export default function About() {
           }}
           className="
             rounded-3xl
-
             border
             border-white/10
-
+            light:border-slate-200
             bg-white/[0.03]
-
+            light:bg-white
             backdrop-blur-xl
-
             p-8
-
             shadow-[0_0_40px_rgba(59,130,246,0.08)]
+            light:shadow-[0_15px_45px_rgba(99,102,241,0.05)]
           "
         >
           <h3
@@ -241,6 +231,7 @@ export default function About() {
               text-3xl
               font-bold
               text-white
+              light:text-slate-950
               mb-6
             "
           >
@@ -250,6 +241,7 @@ export default function About() {
           <p
             className="
               text-slate-300
+              light:text-slate-650
               leading-8
               mb-6
             "
@@ -264,6 +256,7 @@ export default function About() {
           <p
             className="
               text-slate-400
+              light:text-slate-500
               leading-8
               mb-6
             "
@@ -278,6 +271,7 @@ export default function About() {
           <p
             className="
               text-slate-400
+              light:text-slate-500
               leading-8
             "
           >
@@ -288,14 +282,11 @@ export default function About() {
           </p>
 
           {/* STATS */}
-
           <div
             className="
               mt-10
-
               grid
               grid-cols-2
-
               gap-4
             "
           >
@@ -324,13 +315,13 @@ export default function About() {
                 key={item.title}
                 className="
                   rounded-2xl
-
                   border
                   border-white/10
-
+                  light:border-slate-200
                   bg-white/[0.03]
-
+                  light:bg-slate-50
                   p-4
+                  shadow-sm
                 "
               >
                 <div
@@ -338,6 +329,7 @@ export default function About() {
                     text-2xl
                     font-bold
                     text-white
+                    light:text-slate-950
                   "
                 >
                   {item.title}
@@ -347,6 +339,7 @@ export default function About() {
                   className="
                     text-sm
                     text-slate-400
+                    light:text-slate-550
                   "
                 >
                   {item.desc}

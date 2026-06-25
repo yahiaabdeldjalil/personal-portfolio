@@ -2,7 +2,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-
 import {
   FaPython,
   FaLinux,
@@ -22,7 +21,7 @@ import {
 const skillGroups = [
   {
     title: "Artificial Intelligence",
-    color: "from-violet-500/20 to-fuchsia-500/20",
+    color: "from-violet-500/20 to-fuchsia-500/20 light:from-violet-500/10 light:to-fuchsia-500/10",
     skills: [
       {
         name: "Machine Learning",
@@ -45,7 +44,7 @@ const skillGroups = [
 
   {
     title: "Networking & Security",
-    color: "from-cyan-500/20 to-blue-500/20",
+    color: "from-cyan-500/20 to-blue-500/20 light:from-cyan-500/10 light:to-blue-500/10",
     skills: [
       {
         name: "Cybersecurity",
@@ -72,7 +71,7 @@ const skillGroups = [
 
   {
     title: "Software Engineering",
-    color: "from-emerald-500/20 to-cyan-500/20",
+    color: "from-emerald-500/20 to-cyan-500/20 light:from-emerald-500/10 light:to-cyan-500/10",
     skills: [
       {
         name: "Python",
@@ -120,7 +119,6 @@ export default function Skills() {
       "
     >
       {/* HEADER */}
-
       <motion.div
         initial={{
           opacity: 0,
@@ -141,6 +139,7 @@ export default function Skills() {
             md:text-6xl
             font-black
             text-white
+            light:text-slate-900
           "
         >
           Skills & Expertise
@@ -151,6 +150,7 @@ export default function Skills() {
             mt-6
             max-w-3xl
             text-slate-400
+            light:text-slate-650
             text-lg
           "
         >
@@ -160,7 +160,6 @@ export default function Skills() {
       </motion.div>
 
       {/* STATS */}
-
       <div
         className="
           grid
@@ -179,17 +178,16 @@ export default function Skills() {
             key={label}
             className="
               rounded-3xl
-
               border
               border-white/10
-
+              light:border-slate-200
               bg-white/[0.03]
-
+              light:bg-white
               backdrop-blur-xl
-
               p-8
-
               text-center
+              shadow-sm
+              light:shadow-[0_10px_30px_rgba(99,102,241,0.03)]
             "
           >
             <div
@@ -197,12 +195,13 @@ export default function Skills() {
                 text-4xl
                 font-black
                 text-violet-400
+                light:text-violet-650
               "
             >
               {value}
             </div>
 
-            <div className="text-slate-400 mt-2">
+            <div className="text-slate-400 light:text-slate-500 mt-2 font-medium">
               {label}
             </div>
           </div>
@@ -210,7 +209,6 @@ export default function Skills() {
       </div>
 
       {/* SKILL GROUPS */}
-
       <div
         className="
           grid
@@ -240,39 +238,32 @@ export default function Skills() {
             }}
             className="
               relative
-
               overflow-hidden
-
               rounded-3xl
-
               border
               border-white/10
-
+              light:border-slate-200
               bg-white/[0.03]
-
+              light:bg-white
               backdrop-blur-xl
-
               p-8
-
               transition-all
               duration-500
-
               hover:border-violet-500/30
-
+              light:hover:border-violet-500/20
               hover:shadow-[0_0_60px_rgba(139,92,246,0.15)]
+              light:hover:shadow-[0_15px_40px_rgba(139,92,246,0.05)]
             "
           >
             {/* Glow */}
-
             <div
               className={`
                 absolute
                 inset-0
-
                 bg-gradient-to-br
                 ${group.color}
-
                 opacity-50
+                light:opacity-30
               `}
             />
 
@@ -282,6 +273,7 @@ export default function Skills() {
                   text-2xl
                   font-bold
                   text-white
+                  light:text-slate-900
                   mb-8
                 "
               >
@@ -296,27 +288,25 @@ export default function Skills() {
                       flex
                       items-center
                       gap-4
-
                       rounded-xl
-
                       border
                       border-white/5
-
+                      light:border-slate-200/60
                       bg-slate-950/40
-
+                      light:bg-slate-50
                       px-4
                       py-3
-
                       transition-all
                       duration-300
-
                       hover:border-violet-500/30
+                      light:hover:border-violet-500/20
                     "
                   >
                     <div
                       className="
                         text-2xl
                         text-violet-400
+                        light:text-violet-600
                         min-w-[32px]
                       "
                     >
@@ -326,6 +316,7 @@ export default function Skills() {
                     <span
                       className="
                         text-slate-200
+                        light:text-slate-700
                         font-medium
                       "
                     >

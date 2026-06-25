@@ -7,6 +7,8 @@ import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import NetworkBackground from "@/components/network-background";
 import GithubSection from "@/components/github-section";
+
+
 export default function Home() {
   return (
     <>
@@ -19,6 +21,7 @@ export default function Home() {
         <Skills />
         <Projects />
         <GithubSection />
+        
         <Contact />
       </main>
     </>
