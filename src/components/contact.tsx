@@ -9,9 +9,14 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 
+import { AnalyticsEvents, track } from "@/lib/analytics";
+import { useState } from "react";
+import useAnalyticsSection from "@/hooks/useAnalyticsSection";
 export default function Contact() {
+  const sectionRef = useAnalyticsSection(AnalyticsEvents.CONTACT_VIEW, undefined, 0.5);
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className="
         relative
@@ -118,6 +123,7 @@ export default function Contact() {
             transition-all
             shadow-sm
           "
+          onClick={() => track(AnalyticsEvents.CONTACT_EMAIL)}
         >
           <FaEnvelope
             size={40}
@@ -164,6 +170,7 @@ export default function Contact() {
             transition-all
             shadow-sm
           "
+          onClick={()=>track(AnalyticsEvents.CONTACT_GITHUB)}
         >
           <FaGithub
             size={40}
@@ -208,6 +215,7 @@ export default function Contact() {
             transition-all
             shadow-sm
           "
+          onClick={() => track(AnalyticsEvents.CONTACT_WHATSAPP)}
         >
           <FaWhatsapp
             size={40}
@@ -252,6 +260,7 @@ export default function Contact() {
             transition-all
             shadow-sm
           "
+          onClick={() => track(AnalyticsEvents.CONTACT_FACEBOOK)}
         >
           <FaFacebook
             size={40}
@@ -297,6 +306,7 @@ export default function Contact() {
             transition-all
             shadow-sm
           "
+          onClick={() => track(AnalyticsEvents.CONTACT_LINKEDIN)}
         >
           <FaLinkedin
             size={40}
@@ -340,6 +350,7 @@ export default function Contact() {
             light:shadow-[0_10px_30px_rgba(59,130,246,0.15)]
             cursor-pointer
           "
+          onClick={() => track(AnalyticsEvents.START_CONVERSATION)}
         >
           Start a Conversation
         </a>

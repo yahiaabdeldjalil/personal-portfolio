@@ -30,8 +30,7 @@ export default function RootLayout({
       </head>
       <body className="bg-[#050816] text-white antialiased transition-colors duration-300">
         <ThemeProvider>{children}</ThemeProvider>
-          <script defer src="https://cloud.umami.is/script.js" data-website-id="846039e2-0a8c-43e0-b2cd-96789d33dff0"></script>
-      </body>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="9ba1d0b8-dfdb-4a4e-a33c-940421f6ca95"></script>      </body>
     </html>
   );
 }

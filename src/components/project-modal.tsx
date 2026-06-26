@@ -22,6 +22,8 @@ import {
 
 import ArchitectureDiagram from "@/components/architecture-diagram";
 
+import {useEffect} from "react";
+import {AnalyticsEvents, track} from "@/lib/analytics";
 type TabType =
   | "overview"
   | "architecture"
@@ -159,7 +161,7 @@ export default function ProjectModal({
               {tabs.map((tab) => (
                 <button
                   key={tab}
-                  onClick={() => setActiveTab(tab)}
+                  onClick={() => {setActiveTab(tab); track(AnalyticsEvents.PROJECT_TAB, { tab: tab })}}
                   className={`
                     shrink-0
                     px-4
@@ -273,6 +275,7 @@ export default function ProjectModal({
                   transition-all
                   font-semibold
                 "
+                onClick={() => track(AnalyticsEvents.PROJECT_GITHUB, {title: project.title})} 
               >
                 <FaGithub size={20} />
 

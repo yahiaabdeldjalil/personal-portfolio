@@ -1,7 +1,10 @@
 // components/skills.tsx
 "use client";
 
+import useAnalyticsSection from "@/hooks/useAnalyticsSection";
+import { AnalyticsEvents, track } from "@/lib/analytics";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   FaPython,
   FaLinux,
@@ -106,8 +109,10 @@ const skillGroups = [
 ];
 
 export default function Skills() {
+  const sectionRef = useAnalyticsSection(AnalyticsEvents.SKILLS_VIEW, undefined, 0.5);
   return (
     <section
+      ref={sectionRef}
       id="skills"
       className="
         scroll-mt-32

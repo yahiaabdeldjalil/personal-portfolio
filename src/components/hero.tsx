@@ -10,11 +10,12 @@ import {
   FaLinux,
   FaDownload
 } from "react-icons/fa";
-
+import { AnalyticsEvents, track } from "@/lib/analytics";
 import {
   SiPytorch,
   SiTensorflow,
 } from "react-icons/si";
+import useAnalyticsSection from "@/hooks/useAnalyticsSection";
 
 const skills = [
   "Cybersecurity",
@@ -25,8 +26,10 @@ const skills = [
 ];
 
 export default function Hero() {
+
   return (
     <section
+      id="hero"
       className="
         relative
         min-h-screen
@@ -356,6 +359,7 @@ export default function Hero() {
                   hover:bg-cyan-500
                   cursor-pointer
                 "
+                onClick={() => track(AnalyticsEvents.HERO_PROJECTS)}
               >
                 View Projects
               </a>
@@ -382,6 +386,7 @@ export default function Hero() {
                   light:hover:bg-slate-200/50
                   cursor-pointer
                 "
+                onClick={() => track(AnalyticsEvents.HERO_CONTACT)}
               >
                 Contact Me
               </a>
@@ -413,6 +418,7 @@ export default function Hero() {
     hover:border-blue-400
     hover:scale-105
   "
+                onClick={() => track(AnalyticsEvents.CV_DOWNLOAD)}
               >
                 <FaDownload size={20} />
                 Download CV

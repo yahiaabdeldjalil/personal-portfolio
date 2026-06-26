@@ -12,7 +12,7 @@ import {
   FaDownload
 } from "react-icons/fa";
 import { useTheme } from "./theme-provider";
-
+import { AnalyticsEvents, track } from "@/lib/analytics";
 const links = [
   {
     name: "About",
@@ -231,6 +231,7 @@ export default function Navbar() {
                 light:hover:text-slate-900
                 transition-colors
               "
+              onClick={() => track(AnalyticsEvents.NAVBAR_GITHUB_CLICK)}
             >
               <FaGithub size={18} />
             </motion.a>
@@ -250,10 +251,11 @@ export default function Navbar() {
                 light:hover:text-slate-900
                 transition-colors
               "
+              onClick={() => track(AnalyticsEvents.NAVBAR_LINKEDIN_CLICK)}
             >
               <FaLinkedin size={18} />
             </motion.a>
-              <motion.a
+            <motion.a
               whileHover={{
                 y: -2,
                 scale: 1.15,
@@ -269,6 +271,8 @@ export default function Navbar() {
                 inline-flex
                 gap-1
               "
+              onClick={() => track(AnalyticsEvents.NAVBAR_CV_DOWNLOAD)}
+
             >
               <FaDownload size={18} />
               CV
@@ -426,6 +430,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noreferrer"
                   className="text-slate-400 light:text-slate-500"
+                  onClick={() => track(AnalyticsEvents.NAVBAR_GITHUB_CLICK)}
                 >
                   <FaGithub size={22} />
                 </a>
@@ -435,13 +440,14 @@ export default function Navbar() {
                   target="_blank"
                   rel="noreferrer"
                   className="text-slate-400 light:text-slate-500"
+                  onClick={() => track(AnalyticsEvents.NAVBAR_LINKEDIN_CLICK)}
                 >
                   <FaLinkedin size={22} />
                 </a>
                 <a
-              href="/cv/Yahia_Abdeldjalil_Benyahia_CV.pdf"
-              download
-              className="
+                  href="/cv/Yahia_Abdeldjalil_Benyahia_CV.pdf"
+                  download
+                  className="
                 text-slate-400
                 light:text-slate-500
                 hover:text-white
@@ -450,10 +456,12 @@ export default function Navbar() {
                 inline-flex
                 gap-1
               "
-            >
-              <FaDownload size={18} />
-              CV
-            </a>
+                  onClick={() => track(AnalyticsEvents.NAVBAR_CV_DOWNLOAD)}
+
+                >
+                  <FaDownload size={18} />
+                  CV
+                </a>
               </div>
             </motion.div>
           )}

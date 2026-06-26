@@ -1,5 +1,7 @@
 "use client";
 
+import useAnalyticsSection from "@/hooks/useAnalyticsSection";
+import { AnalyticsEvents, track } from "@/lib/analytics";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -42,9 +44,10 @@ export default function About() {
       }, index * 100);
     });
   }, [started]);
-
+  const sectionRef = useAnalyticsSection(AnalyticsEvents.ABOUTME_VIEW, undefined, 0.5);
   return (
     <section
+      ref={sectionRef}
       id="about"
       className="
         scroll-mt-32
@@ -53,6 +56,7 @@ export default function About() {
         mx-auto
         px-8
       "
+
     >
       <motion.h2
         initial={{

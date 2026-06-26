@@ -6,7 +6,7 @@ import Skills from "@/components/skills";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import NetworkBackground from "@/components/network-background";
-import GithubSection from "@/components/github-section";
+import GithubSection from "@/components/github-activity";
 
 
 export default function Home() {

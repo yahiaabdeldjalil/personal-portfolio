@@ -4,14 +4,18 @@ import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
 import { FaGithub } from "react-icons/fa";
 import { useTheme } from "./theme-provider";
+import { AnalyticsEvents, track } from "@/lib/analytics";
+import { useState } from "react";
+import useAnalyticsSection from "@/hooks/useAnalyticsSection";
 
 const username = "yahia-abdeldjalil";
 
 export default function GithubSection() {
   const { resolvedTheme } = useTheme();
-
+  const sectionRef = useAnalyticsSection(AnalyticsEvents.GITHUB_ACTVITY_VIEW, undefined, 0.5);
   return (
     <section
+      ref={sectionRef}
       id="github"
       className="
         scroll-mt-32
@@ -173,6 +177,7 @@ export default function GithubSection() {
             transition-all
             cursor-pointer
           "
+          onClick={()=>track(AnalyticsEvents.GITHUB_CLICK)}
         >
           <FaGithub size={22} />
           Visit GitHub Profile
