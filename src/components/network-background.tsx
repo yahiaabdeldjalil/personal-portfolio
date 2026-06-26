@@ -58,14 +58,14 @@ export default function NetworkBackground() {
       stars.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        r: Math.random() * 1.2,
+        r: Math.random() * 2,
       });
     }
 
     // =====================
     // PARTICLES
     // =====================
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
       const hub = Math.random() > 0.95;
 
       const layer =
@@ -88,8 +88,8 @@ export default function NetworkBackground() {
           (0.15 + layer * 0.6),
 
         radius: hub
-          ? 2.5 + Math.random() * 1.5
-          : 0.7 + Math.random() * 1.2,
+          ? 2.5 + Math.random() * 2
+          : 0.7 + Math.random() * 2,
 
         hub,
 
@@ -120,7 +120,7 @@ export default function NetworkBackground() {
 
       ctx.shadowColor = "#a855f7";
       ctx.shadowBlur = isLight ? 2 : 6;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 2;
 
       for (let i = 0; i < spikes; i++) {
         const angle =
@@ -269,10 +269,10 @@ export default function NetworkBackground() {
                 dy * dy
             );
 
-          if (dist > 140)
+          if (dist > 140) // keep connections within 140px
             continue;
 
-          const baseOpacity = isLight ? 0.22 : 0.12;
+          const baseOpacity = 1;//isLight ? 0.5 : 0.5;
           const opacity =
             (
               baseOpacity +
@@ -281,7 +281,7 @@ export default function NetworkBackground() {
               ) *
                 0.08
             ) *
-            (1 - dist / 140);
+            (1 - dist / 140) * 100;
 
           const gradient =
             ctx.createLinearGradient(
@@ -293,7 +293,7 @@ export default function NetworkBackground() {
 
           gradient.addColorStop(
             0,
-            `rgba(96,165,250,${opacity})`
+            `blue`
           );
 
           gradient.addColorStop(
@@ -306,7 +306,7 @@ export default function NetworkBackground() {
 
           ctx.shadowBlur = isLight ? 1 : 4;
           ctx.shadowColor =
-            "#8b5cf6";
+            "blue";
 
           ctx.lineWidth =
             p1.hub || p2.hub

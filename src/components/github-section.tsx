@@ -96,8 +96,10 @@ export default function GithubSection() {
               className="
                 text-3xl
                 font-black
-                text-violet-400
-                light:text-violet-650
+                text-blue-400
+                text-shadow-md
+                text-shadow-blue-400
+                light:text-shadow-black
               "
             >
               {value}
@@ -157,17 +159,17 @@ export default function GithubSection() {
             gap-3
             rounded-2xl
             border
-            border-violet-500/30
-            light:border-violet-500/40
-            bg-violet-500/10
-            light:bg-violet-50
+            border-blue-500/30
+            light:border-blue-500/40
+            bg-blue-500/10
+            light:bg-blue-50
             px-6
             py-4
             text-white
-            light:text-violet-750
+            light:text-blue-750
             font-semibold
-            hover:bg-violet-500/20
-            light:hover:bg-violet-500/10
+            hover:bg-blue-500/20
+            light:hover:bg-blue-500/10
             transition-all
             cursor-pointer
           "

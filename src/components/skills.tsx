@@ -33,11 +33,11 @@ const skillGroups = [
       },
       {
         name: "TensorFlow",
-        icon: <SiTensorflow />,
+        icon: <SiTensorflow color="#FF6F00"/>,
       },
       {
         name: "PyTorch",
-        icon: <SiPytorch />,
+        icon: <SiPytorch color="#EE4C2C"/>,
       },
     ],
   },
@@ -75,7 +75,7 @@ const skillGroups = [
     skills: [
       {
         name: "Python",
-        icon: <FaPython />,
+        icon: <FaPython color="#3776AB"/>,
       },
       {
         name: "Java",
@@ -83,7 +83,7 @@ const skillGroups = [
       },
       {
         name: "React",
-        icon: <FaReact />,
+        icon: <FaReact color="#2496ED"/>,
       },
       {
         name: "NextJS",
@@ -95,11 +95,11 @@ const skillGroups = [
       },
       {
         name: "Docker",
-        icon: <FaDocker />,
+        icon: <FaDocker color="#2496ED"/>,
       },
       {
         name: "Linux",
-        icon: <FaLinux />,
+        icon: <FaLinux color="#FCC624"/>,
       },
     ],
   },
@@ -194,8 +194,12 @@ export default function Skills() {
               className="
                 text-4xl
                 font-black
-                text-violet-400
-                light:text-violet-650
+                text-blue-400
+                light:text-blue-650
+                // text shadow position left
+                text-shadow-blue-500
+                text-shadow-lg
+                light:text-shadow-black
               "
             >
               {value}

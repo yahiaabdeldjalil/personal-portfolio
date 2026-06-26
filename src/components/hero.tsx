@@ -8,6 +8,7 @@ import {
   FaPython,
   FaDocker,
   FaLinux,
+  FaDownload
 } from "react-icons/fa";
 
 import {
@@ -31,7 +32,7 @@ export default function Hero() {
         min-h-screen
         flex
         items-center
-        overflow-hidden
+        overflow-visible
         pt-28
         lg:pt-20
         pb-20
@@ -46,24 +47,7 @@ export default function Hero() {
           pointer-events-none
         "
       >
-        <div
-          className="
-            absolute
-            -top-40
-            -left-40
-            w-[350px]
-            h-[350px]
-            sm:w-[500px]
-            sm:h-[500px]
-            lg:w-[700px]
-            lg:h-[700px]
-            rounded-full
-            bg-cyan-500/10
-            light:bg-cyan-400/5
-            blur-[120px]
-            lg:blur-[180px]
-          "
-        />
+
 
         <div
           className="
@@ -77,7 +61,7 @@ export default function Hero() {
             lg:w-[700px]
             lg:h-[700px]
             rounded-full
-            bg-violet-500/10
+            bg-blue-500/10
             light:bg-violet-400/5
             blur-[120px]
             lg:blur-[180px]
@@ -207,12 +191,12 @@ export default function Hero() {
                     border
                     border-violet-500/20
                     light:border-violet-500/30
-                    bg-violet-500/10
+                    bg-blue-500/10
                     light:bg-violet-50
                     px-4
                     py-2
                     text-violet-300
-                    light:text-violet-700
+                    light:text-blue-700
                     text-sm
                     font-medium
                   "
@@ -400,6 +384,38 @@ export default function Hero() {
                 "
               >
                 Contact Me
+              </a>
+              <a
+                href="/cv/Yahia_Abdeldjalil_Benyahia_CV.pdf"
+                download
+                className="
+    inline-flex
+    items-center
+    gap-3
+
+    rounded-xl
+
+    border
+    border-blue-500/30
+
+    bg-blue-500/10
+
+    px-6
+    py-3
+
+    font-semibold
+    text-blue-300
+
+    transition-all
+    duration-300
+
+    hover:bg-blue-500/20
+    hover:border-blue-400
+    hover:scale-105
+  "
+              >
+                <FaDownload size={20} />
+                Download CV
               </a>
             </div>
           </motion.div>

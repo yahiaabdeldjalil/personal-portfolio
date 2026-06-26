@@ -32,8 +32,8 @@ export default function Contact() {
           -translate-x-1/2
           w-[500px]
           h-[500px]
-          bg-violet-500/10
-          light:bg-violet-400/5
+          bg-blue-500/10
+          light:bg-blue-400/5
           blur-[180px]
           rounded-full
         "
@@ -113,15 +113,15 @@ export default function Contact() {
             backdrop-blur-xl
             p-8
             text-center
-            hover:border-violet-500/30
-            light:hover:border-violet-500/20
+            hover:border-blue-500/30
+            light:hover:border-blue-500/20
             transition-all
             shadow-sm
           "
         >
           <FaEnvelope
             size={40}
-            className="mx-auto text-violet-400 light:text-violet-600"
+            className="mx-auto text-blue-400 light:text-blue-600"
           />
 
           <h3
@@ -159,15 +159,15 @@ export default function Contact() {
             backdrop-blur-xl
             p-8
             text-center
-            hover:border-violet-500/30
-            light:hover:border-violet-500/20
+            hover:border-blue-500/30
+            light:hover:border-blue-500/20
             transition-all
             shadow-sm
           "
         >
           <FaGithub
             size={40}
-            className="mx-auto text-violet-400 light:text-slate-800"
+            className="mx-auto text-white/32 light:text-slate-800"
           />
 
           <h3
@@ -292,15 +292,15 @@ export default function Contact() {
             backdrop-blur-xl
             p-8
             text-center
-            hover:border-violet-500/30
-            light:hover:border-violet-500/20
+            hover:border-blue-500/30
+            light:hover:border-blue-500/20
             transition-all
             shadow-sm
           "
         >
           <FaLinkedin
             size={40}
-            className="mx-auto text-violet-400 light:text-violet-650"
+            className="mx-auto text-blue-400 light:text-blue-650"
           />
 
           <h3
@@ -329,15 +329,15 @@ export default function Contact() {
             inline-flex
             items-center
             rounded-2xl
-            bg-violet-600
+            bg-blue-600
             px-10
             py-5
             text-white
             font-semibold
-            hover:bg-violet-500
+            hover:bg-blue-500
             transition-all
-            shadow-[0_0_40px_rgba(139,92,246,0.4)]
-            light:shadow-[0_10px_30px_rgba(139,92,246,0.15)]
+            shadow-[0_0_40px_rgba(59,130,246,0.4)]
+            light:shadow-[0_10px_30px_rgba(59,130,246,0.15)]
             cursor-pointer
           "
         >

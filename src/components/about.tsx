@@ -106,8 +106,8 @@ export default function About() {
             rounded-3xl
             overflow-hidden
             border
-            border-violet-500/20
-            light:border-violet-500/30
+            border-blue-500/20
+            light:border-blue-500/30
             bg-slate-950/80
             light:bg-slate-50
             backdrop-blur-xl
@@ -191,8 +191,8 @@ export default function About() {
                   inline-block
                   w-2
                   h-5
-                  bg-violet-400
-                  light:bg-violet-600
+                  bg-blue-400
+                  light:bg-blue-600
                   animate-pulse
                 "
               />

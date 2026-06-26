@@ -9,6 +9,7 @@ import {
   FaTimes,
   FaSun,
   FaMoon,
+  FaDownload
 } from "react-icons/fa";
 import { useTheme } from "./theme-provider";
 
@@ -117,9 +118,8 @@ export default function Navbar() {
             border
             backdrop-blur-2xl
             transition-all
-            ${
-              scrolled
-                ? `
+            ${scrolled
+              ? `
                 bg-slate-950/75
                 light:bg-white/75
                 border-violet-500/20
@@ -127,7 +127,7 @@ export default function Navbar() {
                 shadow-[0_0_40px_rgba(168,85,247,0.15)]
                 light:shadow-[0_10px_30px_rgba(168,85,247,0.06)]
               `
-                : `
+              : `
                 bg-white/[0.04]
                 light:bg-slate-100/30
                 border-white/10
@@ -182,11 +182,11 @@ export default function Navbar() {
                       absolute
                       inset-0
                       rounded-full
-                      bg-violet-500/20
-                      light:bg-violet-500/10
+                      bg-blue-500/20
+                      light:bg-blue-500/10
                       border
                       border-violet-400/20
-                      light:border-violet-500/20
+                      light:border-blue-500/20
                     "
                   />
                 )}
@@ -196,10 +196,9 @@ export default function Navbar() {
                     relative
                     z-10
                     transition-colors
-                    ${
-                      active === link.id
-                        ? "text-white light:text-violet-600"
-                        : "text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900"
+                    ${active === link.id
+                      ? "text-white light:text-blue-600"
+                      : "text-slate-400 light:text-slate-600 hover:text-white light:hover:text-slate-900"
                     }
                   `}
                 >
@@ -254,7 +253,26 @@ export default function Navbar() {
             >
               <FaLinkedin size={18} />
             </motion.a>
-
+              <motion.a
+              whileHover={{
+                y: -2,
+                scale: 1.15,
+              }}
+              href="/cv/Yahia_Abdeldjalil_Benyahia_CV.pdf"
+              download
+              className="
+                text-slate-400
+                light:text-slate-500
+                hover:text-white
+                light:hover:text-slate-900
+                transition-colors
+                inline-flex
+                gap-1
+              "
+            >
+              <FaDownload size={18} />
+              CV
+            </motion.a>
             <div className="h-4 w-px bg-white/10 light:bg-slate-200" />
 
             <button
@@ -382,14 +400,13 @@ export default function Navbar() {
                     py-4
                     text-left
                     transition-colors
-                    ${
-                      active === link.id
-                        ? "bg-violet-500/15 light:bg-violet-500/10 text-white light:text-violet-600 font-semibold"
-                        : "text-slate-400 light:text-slate-600"
+                    ${active === link.id
+                      ? "bg-blue-500/20 light:bg-violet-500/10 text-white light:text-violet-600 font-semibold"
+                      : "text-slate-400 light:text-slate-600"
                     }
                   `}
                 >
-                  {link.name}
+                  {link.name}s
                 </button>
               ))}
 
@@ -421,6 +438,22 @@ export default function Navbar() {
                 >
                   <FaLinkedin size={22} />
                 </a>
+                <a
+              href="/cv/Yahia_Abdeldjalil_Benyahia_CV.pdf"
+              download
+              className="
+                text-slate-400
+                light:text-slate-500
+                hover:text-white
+                light:hover:text-slate-900
+                transition-colors
+                inline-flex
+                gap-1
+              "
+            >
+              <FaDownload size={18} />
+              CV
+            </a>
               </div>
             </motion.div>
           )}
