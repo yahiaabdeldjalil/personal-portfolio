@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-
+import Script from "next/script";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,6 +30,7 @@ export default function RootLayout({
       </head>
       <body className="bg-[#050816] text-white antialiased transition-colors duration-300">
         <ThemeProvider>{children}</ThemeProvider>
+          <script defer src="https://cloud.umami.is/script.js" data-website-id="846039e2-0a8c-43e0-b2cd-96789d33dff0"></script>
       </body>
     </html>
   );
