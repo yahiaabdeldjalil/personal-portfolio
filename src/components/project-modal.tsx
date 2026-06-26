@@ -161,7 +161,7 @@ export default function ProjectModal({
               {tabs.map((tab) => (
                 <button
                   key={tab}
-                  onClick={() => {setActiveTab(tab); track(AnalyticsEvents.PROJECT_TAB, { tab: tab })}}
+                  onClick={() => {setActiveTab(tab); track(`${tab} Viewed - ${project.title}`)}}
                   className={`
                     shrink-0
                     px-4
@@ -275,7 +275,7 @@ export default function ProjectModal({
                   transition-all
                   font-semibold
                 "
-                onClick={() => track(AnalyticsEvents.PROJECT_GITHUB, {title: project.title})} 
+                onClick={() => track(`Github Viewed - ${project.title}`)} 
               >
                 <FaGithub size={20} />
 

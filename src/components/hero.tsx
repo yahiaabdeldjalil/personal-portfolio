@@ -418,7 +418,7 @@ export default function Hero() {
     hover:border-blue-400
     hover:scale-105
   "
-                onClick={() => track(AnalyticsEvents.CV_DOWNLOAD)}
+                onClick={() => {track(AnalyticsEvents.CV_DOWNLOAD)}}
               >
                 <FaDownload size={20} />
                 Download CV

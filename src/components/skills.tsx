@@ -109,7 +109,7 @@ const skillGroups = [
 ];
 
 export default function Skills() {
-  const sectionRef = useAnalyticsSection(AnalyticsEvents.SKILLS_VIEW, undefined, 0.5);
+  const sectionRef = useAnalyticsSection(AnalyticsEvents.SKILLS_VIEW, undefined, 0.2);
   return (
     <section
       ref={sectionRef}

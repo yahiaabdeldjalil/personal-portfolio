@@ -1,3 +1,4 @@
+// hooks/useAnalyticsSection.ts
 "use client";
 
 import { useEffect, useRef } from "react";

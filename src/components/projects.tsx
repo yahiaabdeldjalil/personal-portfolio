@@ -1,3 +1,4 @@
+// components/projects.ts
 "use client";
 
 import { motion } from "framer-motion";
@@ -14,7 +15,7 @@ import {
 import useAnalyticsSection from "@/hooks/useAnalyticsSection";
 
 export default function Projects() {
-  const sectionRef = useAnalyticsSection(AnalyticsEvents.PROJECTS_VIEW, undefined, 0.5);
+  const sectionRef = useAnalyticsSection(AnalyticsEvents.PROJECTS_VIEW, undefined, 0.1);
   return (
     <section
       ref={sectionRef}
@@ -88,12 +89,7 @@ export default function Projects() {
                 y: -8,
               }}
               onClick={() =>
-                track(
-                  AnalyticsEvents.PROJECT_CARD_CLICK,
-                  {
-                    project: project.title,
-                  }
-                )
+                track(`Opened Project - ${project.title}`)
               }
               className="
                 group

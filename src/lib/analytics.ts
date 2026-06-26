@@ -38,6 +38,7 @@ export function track(
   event: string,
   data?: Record<string, string | number>
 ) {
+    // console.log("track() called:", event,"with data: ", data);
   if (typeof window === "undefined") return;
 
   if ("umami" in window) {
